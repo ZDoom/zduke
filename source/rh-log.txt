@@ -1,0 +1,124 @@
+May 20, 2003
+- Removed the used of the SP, SLT, SECT, etc macros because the debugger
+  doesn't understand them and will not automatically show the values of the
+  associated variables.
+
+May 17, 2003
+- Fixed the problem with multiplayer: My attempt to reformat getpackets() had
+  some braces in the wrong places, so the only player whose movements would
+  be received was player 0. However, it dies when SIMULATEERRORS is non-zero,
+  and I can't get the original Build packet code to work anymore. This
+  simulates a *very* bad network however, so I don't know how well I should
+  expect it to fare in a real network.
+- Tried rewriting the code in mmulti.c to be a combination of the Doom and
+  Build connection systems. Actually playing a network game still doesn't work,
+  but the problems are the same as before, so I don't think mmulti.c is at
+  fault. The new code produces smaller packets, so unless I can't find the
+  problem elsewhere, I'm going to keep it in place.
+
+May 16, 2003
+- Ported the UDP driver from ZDoom. Since both Duke3D and Doom abstract the
+  network interface to an external program, this was relatively simple.
+  Unfortunately, networking doesn't really work yet. I can get as far entering
+  a level, and then it gets stuck.
+
+May 14, 2003
+- Added a real startup console viewer. Now I don't need to allocate a console
+  and hack the Visual C++ CRT to redirect stdio to it. This is even an
+  improvement over ZDoom's current workings, because if something goes wrong
+  and the game crashes, I can show the window so the user has a better idea
+  of where it happened.
+- Removed the pause after the name of the current config file gets printed
+  during startup.
+- Changed the CON compiler to use a binary search for identifying keywords.
+
+May 12, 2003
+- Changed playing sound tracking to use a linked list of the currently playing
+  sounds instead of storing this information with the sounds themselves.
+- Reimplemented the RTS taunts for the new sound code.
+- Added in-game resolution switching.
+
+May 10, 2003
+- Integrated the quote system with the console notify system.
+
+May 9, 2003
+- Added cvars for the shift, alt, and ctrl keys and the cond command so that
+  the function keys are fully bindable.
+
+May 8, 2003
+- Added EAX reverb support for hardware channels. On EAX3 cards, it uses the
+  sewer pipe preset as a base, and all other cards use the generic preset as a
+  base. Testing with my Audigy and nForce2, I think the sewer pipe sounds much
+  better on the Audigy than the nForce2, which is why I decided to do two
+  different types of reverb for EAX2 and EAX3 cards.
+- Changed stopsound to be the same as stopenvsound so that you actually have
+  to specify which sprite's sound you want to stop. Now that you can have more
+  than one sprite emitting the sound at the time, this is needed. Removed
+  stopenvsound since it's now redundant.
+
+May 7, 2003
+- Changed some sounds that are effectively looping sounds (e.g. player jetpack
+  and just about anything played by a MUSICANDSFX sprite) so that they are
+  proper looping sounds even if the con doesn't define them as such.
+- Simplified the FX_ layer so that it is now a very thin wrapper on top of
+  FMOD.
+- Added the ASS "reverb" effect for software mixing.
+
+May 6, 2003
+- More 3D sound tweaking. Duke sounds have to travel a long distance before
+  they start being attenuated, and then they drop off to silence rapidly after
+  that--they're full volume for nearly half their audible range!
+
+May 5, 2003
+- Decided to not try to graft my ZDoom SFX code into Duke. The two games treat
+  sounds too differently. Instead, I have opted to take some of the backend
+  sound code that talks to FMOD directly and use it to fashion an ASS-like
+  layer for Duke to use. Now my only problem seems to be setting the min sound
+  distance and rolloff factors to best simulate Duke's sound.
+
+May 3, 2003
+- Got sounds working, after a fashion. Music is fine, but SFX still need work.
+
+May 1, 2003
+- Replaced as many spritetype::cstat, walltype::cstat, sectortype::floortype,
+  and sectortype::ceilingtype numeric constants I could find with symbolic
+  constants.
+
+April 28, 2003
+- Removed the sound reduction associated with 8250 UARTs.
+- Added ONELEVELDEMO detection. Since I don't actually have this version, I
+  tested it by taking the shareware duke3d.grp and removing all the maps
+  past E1L1.
+
+April 27, 2003
+- Implemented console output, so now I can use it without typing blindly.
+
+April 26, 2003
+- Implemented more stuff: Key bindings, shareware (and presumably full version
+  1.3D) support, key input during dobonus, and console input. As the console is
+  currently invisible, I'm temporarily redirecting its output to stdout.
+
+April 17, 2003
+- Started moving the input code to use Doom's responder system. Duke handles
+  keyboard input quite differently from Doom. It uses an interrupt routine to
+  grab keyboard input as it happens and fill buffers. So to check if a key is
+  pressed or not, the game just looks at that key's entry in an array. The
+  keyboard interrupt routine also fills a queue for those times when the game
+  needs buffered keyboard input. There is no centralized event collection and
+  dispatch system. The simple keyboard handler I did on the 15th is no more,
+  but the menus and cheats work again.
+
+April 16, 2003
+- Fixed the various fade ins and outs so that they are actually visible.
+- Ported my vlinetallasm4 routine back to the BUILD engine.
+- Fixed BUILD engine bug: parascan() would draw one column past dax2.
+
+April 15, 2003
+- Added simple keyboard handler so I can start a game and enter cheats. Still no
+  controls.
+
+April 14, 2003
+- Fixed demo playback for v1.15 demos.
+
+April 12, 2003
+- First time I get the game to link and run, albeit there are no controls or sounds.

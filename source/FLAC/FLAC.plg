@@ -1,0 +1,59 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: FLAC - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "H:\DOCUME~1\Randy\LOCALS~1\Temp\RSPEC.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /D "FLAC__CPU_IA32" /D "FLAC__HAS_NASM" /D "FLAC__SSE_OS" /D "FLAC__USE_3DNOW" /Fp"FLAC___Win32_Debug/FLAC.pch" /YX /Fo"FLAC___Win32_Debug/" /Fd"FLAC___Win32_Debug/" /FD /GZ  /c 
+"F:\zdoom\zdoom-2.0\src\flac\bitbuffer.c"
+"F:\zdoom\zdoom-2.0\src\flac\bitmath.c"
+"F:\zdoom\zdoom-2.0\src\flac\cpu.c"
+"F:\zdoom\zdoom-2.0\src\flac\crc.c"
+"F:\zdoom\zdoom-2.0\src\flac\fixed.c"
+"F:\zdoom\zdoom-2.0\src\flac\format.c"
+"F:\zdoom\zdoom-2.0\src\flac\lpc.c"
+"F:\zdoom\zdoom-2.0\src\flac\stream_decoder.c"
+"F:\zdoom\zdoom-2.0\src\flac\stream_decoder_pp.cpp"
+]
+Creating command line "cl.exe @H:\DOCUME~1\Randy\LOCALS~1\Temp\RSPEC.tmp" 
+Creating temporary file "H:\DOCUME~1\Randy\LOCALS~1\Temp\RSPED.tmp" with contents
+[
+/nologo /out:"FLAC___Win32_Debug\FLAC.lib" 
+".\FLAC___Win32_Debug\bitbuffer.obj"
+".\FLAC___Win32_Debug\bitmath.obj"
+".\FLAC___Win32_Debug\cpu.obj"
+".\FLAC___Win32_Debug\crc.obj"
+".\FLAC___Win32_Debug\fixed.obj"
+".\FLAC___Win32_Debug\format.obj"
+".\FLAC___Win32_Debug\lpc.obj"
+".\FLAC___Win32_Debug\stream_decoder.obj"
+".\FLAC___Win32_Debug\stream_decoder_pp.obj"
+".\FLAC___Win32_Debug\cpu_asm.obj"
+".\FLAC___Win32_Debug\fixed_asm.obj"
+".\FLAC___Win32_Debug\lpc_asm.obj"
+]
+Creating command line "link.exe -lib @H:\DOCUME~1\Randy\LOCALS~1\Temp\RSPED.tmp"
+<h3>Output Window</h3>
+Compiling...
+bitbuffer.c
+bitmath.c
+cpu.c
+crc.c
+fixed.c
+format.c
+lpc.c
+stream_decoder.c
+stream_decoder_pp.cpp
+Creating library...
+
+
+
+<h3>Results</h3>
+FLAC.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
